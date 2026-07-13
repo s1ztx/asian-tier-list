@@ -1,0 +1,189 @@
+<!-- File: staff-application.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Recruitment | Asian Tier List [1.8+]</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .application-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .application-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+        .app-notice {
+            padding: 1.2rem;
+            background: rgba(43, 192, 255, 0.05);
+            border-left: 3px solid var(--accent-blue-light);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .form-label {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-label span {
+            color: var(--accent-red);
+        }
+        .form-input, .form-textarea, .form-select {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            padding: 0.9rem 1.2rem;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color var(--transition-fast);
+        }
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+            line-height: 1.6;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--accent-blue-light);
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        .checkbox-group input {
+            margin-top: 0.25rem;
+            accent-color: var(--accent-blue-light);
+        }
+        .checkbox-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body class="page-application dark-theme">
+    <div id="application-background-wrapper">
+        <div class="recruitment-spotlight"></div>
+    </div>
+
+    <nav class="main-navigation glassmorphism">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <span class="brand-title">ATL</span>
+                <span class="brand-version">[1.8+]</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="rules.html" class="nav-link">Rules</a></li>
+                <li class="nav-item"><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li class="nav-item"><a href="staff.html" class="nav-link">Staff</a></li>
+                <li class="nav-item"><a href="testers.html" class="nav-link">Testers</a></li>
+                <li class="nav-item"><a href="leaderboards.html" class="nav-link">Leaderboards</a></li>
+                <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link">Player Profile</a></li>
+                <li class="nav-item"><a href="tester-panel.html" class="nav-link">Tester Panel</a></li>
+                <li class="nav-item"><a href="owner.html" class="nav-link">Owner Panel</a></li>
+                <li class="nav-item"><a href="staff-application.html" class="nav-link active">Staff Applications</a></li>
+            </ul>
+            <div class="auth-container">
+                <button class="discord-login-btn premium-button">
+                    <span>s1ztx</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="application-container">
+            <div class="section-heading">
+                <h2 class="section-title">Staff Recruitment</h2>
+                <div class="heading-accent"></div>
+            </div>
+
+            <form class="application-card glassmorphism" onsubmit="event.preventDefault();">
+                <div class="app-notice">
+                    Applications are thoroughly evaluated by <strong>s1ztx</strong> and <strong>Shizeen</strong>. Providing false details, plagiarizing applications, or spamming the management team regarding reviews will cause immediate disqualification.
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Minecraft Username (IGN) <span>*</span></label>
+                    <input type="text" class="form-input" required placeholder="e.g. s1ztx">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Position Applying For <span>*</span></label>
+                    <select class="form-select" required>
+                        <option value="" disabled selected style="display:none;">Select team role...</option>
+                        <option value="tester">Official Tier Tester</option>
+                        <option value="moderator">Community Moderator</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Primary Region / Timezone <span>*</span></label>
+                    <input type="text" class="form-input" required placeholder="e.g. Asia / GMT+8">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Why do you want to join the ATL staff team? <span>*</span></label>
+                    <textarea class="form-textarea" required placeholder="Detail your primary motivations, commitment capabilities, and how you intend to improve the verification environment..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Describe any prior moderation or tier testing experience <span>*</span></label>
+                    <textarea class="form-textarea" required placeholder="List previous servers, networks, or tier lists you have officially represented..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox" required>
+                        <span class="checkbox-label">I certify that I have read the official community regulations, maintain a clean history without recent blacklists, and understand that my staff permissions can be revoked instantly for policy violations.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="premium-button" style="margin-top: 1rem;">Submit Application</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-divider"></div>
+        <div class="footer-content">
+            <p>&copy; 2026 Asian Tier List and s1ztx, All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/themes.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
