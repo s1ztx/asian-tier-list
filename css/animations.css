@@ -1,0 +1,152 @@
+/* File: css/animations.css */
+
+/* ==========================================================================
+   Background & Environmental Animations
+   ========================================================================== */
+
+@keyframes rotate-aurora {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes move-beams {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 200%;
+    }
+}
+
+@keyframes scroll-data {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* ==========================================================================
+   UI Component Animations
+   ========================================================================== */
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.98);
+        box-shadow: 0 0 0 0 rgba(255, 70, 85, 0.4);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 70, 85, 0);
+    }
+    100% {
+        transform: scale(0.98);
+        box-shadow: 0 0 0 0 rgba(255, 70, 85, 0);
+    }
+}
+
+@keyframes pulse-blue {
+    0% {
+        transform: scale(0.98);
+        box-shadow: 0 0 0 0 rgba(43, 192, 255, 0.4);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(43, 192, 255, 0);
+    }
+    100% {
+        transform: scale(0.98);
+        box-shadow: 0 0 0 0 rgba(43, 192, 255, 0);
+    }
+}
+
+@keyframes float-slow {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes float-medium {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes border-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes text-glitch {
+    0% {
+        text-shadow: 2px -2px 0 rgba(255, 70, 85, 0.5), -2px 2px 0 rgba(43, 192, 255, 0.5);
+    }
+    25% {
+        text-shadow: -2px 2px 0 rgba(255, 70, 85, 0.5), 2px -2px 0 rgba(43, 192, 255, 0.5);
+    }
+    50% {
+        text-shadow: 2px 2px 0 rgba(255, 70, 85, 0.5), -2px -2px 0 rgba(43, 192, 255, 0.5);
+    }
+    75% {
+        text-shadow: -2px -2px 0 rgba(255, 70, 85, 0.5), 2px 2px 0 rgba(43, 192, 255, 0.5);
+    }
+    100% {
+        text-shadow: 2px -2px 0 rgba(255, 70, 85, 0.5), -2px 2px 0 rgba(43, 192, 255, 0.5);
+    }
+}
+
+/* ==========================================================================
+   Animation Utility Classes
+   ========================================================================== */
+
+.animated-pulse-red {
+    animation: pulse-red 2s infinite;
+}
+
+.animated-pulse-blue {
+    animation: pulse-blue 2s infinite;
+}
+
+.animated-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
+
+.animated-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+}
+
+.animated-glow:hover {
+    box-shadow: var(--shadow-glow-red);
+    transition: box-shadow var(--transition-fast);
+}
+
+.glitch-text:hover {
+    animation: text-glitch 0.3s linear infinite;
+}
