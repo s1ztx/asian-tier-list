@@ -1,0 +1,187 @@
+<!-- File: testers.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Testers | Asian Tier List [1.8+]</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .testers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .testers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .tester-card {
+            background: var(--bg-panel);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-medium);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .tester-card:hover {
+            border-color: var(--accent-red);
+            box-shadow: 0 0 20px rgba(255, 70, 85, 0.15);
+            transform: translateY(-3px);
+        }
+        .tester-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            background: rgba(255, 70, 85, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 70, 85, 0.3);
+        }
+        .tester-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .tester-name {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .tester-status {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
+        }
+        .tester-regions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .region-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            color: var(--text-muted);
+            border: 1px solid var(--glass-border);
+        }
+    </style>
+</head>
+<body class="page-testers dark-theme">
+    <div id="testers-background-wrapper">
+        <div class="pvp-energy"></div>
+    </div>
+
+    <nav class="main-navigation glassmorphism">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <span class="brand-title">ATL</span>
+                <span class="brand-version">[1.8+]</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="rules.html" class="nav-link">Rules</a></li>
+                <li class="nav-item"><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li class="nav-item"><a href="staff.html" class="nav-link">Staff</a></li>
+                <li class="nav-item"><a href="testers.html" class="nav-link active">Testers</a></li>
+                <li class="nav-item"><a href="leaderboards.html" class="nav-link">Leaderboards</a></li>
+                <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link">Player Profile</a></li>
+                <li class="nav-item"><a href="tester-panel.html" class="nav-link">Tester Panel</a></li>
+                <li class="nav-item"><a href="owner.html" class="nav-link">Owner Panel</a></li>
+                <li class="nav-item"><a href="staff-application.html" class="nav-link">Staff Applications</a></li>
+            </ul>
+            <div class="auth-container">
+                <button class="discord-login-btn premium-button">
+                    <svg class="discord-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                        <path fill="#ffffff" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </svg>
+                    <span>Login with Discord</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="testers-container">
+            <div class="section-heading">
+                <h2 class="section-title">Official Testers</h2>
+                <div class="heading-accent"></div>
+            </div>
+
+            <div class="testers-grid">
+                <!-- Example Tester 1 -->
+                <div class="tester-card glassmorphism">
+                    <div class="tester-avatar">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff4655" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="tester-info">
+                        <span class="tester-name">PvpMaster99</span>
+                        <div class="tester-status">
+                            <span class="status-dot"></span> Accepting Requests
+                        </div>
+                        <div class="tester-regions">
+                            <span class="region-tag">AS</span>
+                            <span class="region-tag">Nodebuff</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Tester 2 -->
+                <div class="tester-card glassmorphism">
+                    <div class="tester-avatar">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff4655" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="tester-info">
+                        <span class="tester-name">ComboKing</span>
+                        <div class="tester-status">
+                            <span class="status-dot" style="background:#ff4655; box-shadow: 0 0 10px #ff4655;"></span> Busy
+                        </div>
+                        <div class="tester-regions">
+                            <span class="region-tag">AS</span>
+                            <span class="region-tag">Boxing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-divider"></div>
+        <div class="footer-content">
+            <p>&copy; 2026 Asian Tier List and s1ztx, All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/themes.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
