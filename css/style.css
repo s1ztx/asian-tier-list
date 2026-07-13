@@ -1,500 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
-
-/* ==========================================================================
-   CSS Variables & Base Design Tokens
-   ========================================================================== */
+/* File: css/style.css */
 :root {
-    /* Color Palette */
     --bg-dark: #0a0a0f;
-    --bg-darker: #050508;
-    --bg-panel: rgba(15, 15, 22, 0.6);
-    
+    --bg-panel: #14141d;
+    --glass-border: rgba(255, 255, 255, 0.1);
     --text-primary: #ffffff;
-    --text-secondary: #a0a5b5;
-    --text-muted: #6b7280;
-    
-    --accent-red: #ff4655;
-    --accent-red-hover: #ff5866;
-    --accent-blue: #0f1923;
+    --text-secondary: #b0b0c0;
+    --text-muted: #707080;
     --accent-blue-light: #2bc0ff;
-    
-    --discord-color: #5865F2;
-    --discord-hover: #4752C4;
-    
-    /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-highlight: rgba(255, 255, 255, 0.12);
-    --glass-blur: blur(12px);
-    
-    /* Shadows */
-    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
-    --shadow-glow-red: 0 0 20px rgba(255, 70, 85, 0.3);
-    --shadow-glow-blue: 0 0 20px rgba(43, 192, 255, 0.3);
-    
-    /* Typography */
-    --font-sans: 'Inter', sans-serif;
-    --font-heading: 'Rajdhani', sans-serif;
-    
-    /* Layout */
-    --max-width: 1400px;
-    --nav-height: 80px;
-    --z-background: -10;
-    --z-base: 1;
-    --z-nav: 1000;
-    --z-modal: 2000;
-    
-    /* Transitions */
-    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --accent-red: #ff4655;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    --transition-fast: 0.2s ease-in-out;
+    --transition-medium: 0.4s ease-in-out;
 }
 
-/* ==========================================================================
-   Base Reset & Globals
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
-    font-family: var(--font-sans);
+    font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: color var(--transition-fast);
-}
-
-ul {
-    list-style: none;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-family: inherit;
-}
-
-/* ==========================================================================
-   Utility Classes
-   ========================================================================== */
+/* Base Utility Classes */
 .glassmorphism {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+    background: rgba(20, 20, 29, 0.7);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
 }
 
-.highlight-blue { color: var(--accent-blue-light); }
-.highlight-red { color: var(--accent-red); }
-
-/* ==========================================================================
-   Navigation
-   ========================================================================== */
-.main-navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-height);
-    z-index: var(--z-nav);
-    border-bottom: 1px solid var(--glass-border);
-    transition: background-color var(--transition-medium);
+.premium-button {
+    background: var(--accent-blue-light);
+    color: #000;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform var(--transition-fast), background var(--transition-fast);
 }
 
-.nav-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 2rem;
-    height: 100%;
+.premium-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.section-heading {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.heading-accent {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-blue-light);
+    margin-top: 0.5rem;
+}
+
+/* Nav Styles */
+.main-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.brand-logo {
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
     display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
-    font-family: var(--font-heading);
-    cursor: pointer;
-}
-
-.brand-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--text-primary);
-}
-
-.brand-version {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--accent-red);
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-menu {
     display: flex;
-    gap: 2rem;
-    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
 }
 
 .nav-link {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     color: var(--text-secondary);
-    position: relative;
-    padding: 0.5rem 0;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-red);
-    transition: width var(--transition-fast);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color var(--transition-fast);
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--text-primary);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
-}
-
-/* Discord Login Button */
-.discord-login-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background-color: var(--discord-color);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all var(--transition-fast);
-    position: relative;
-    overflow: hidden;
-}
-
-.discord-login-btn:hover {
-    background-color: var(--discord-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-}
-
-.discord-logo {
-    width: 20px;
-    height: 20px;
-}
-
-/* ==========================================================================
-   Main Layout & Sections
-   ========================================================================== */
-.main-content {
-    flex: 1;
-    margin-top: var(--nav-height);
-    position: relative;
-    z-index: var(--z-base);
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 4rem;
-    position: relative;
-}
-
-.section-title {
+.brand-logo {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-}
-
-.heading-accent {
-    width: 60px;
-    height: 3px;
-    background: var(--accent-red);
-    margin: 0 auto;
-}
-
-/* ==========================================================================
-   Hero Section (Home)
-   ========================================================================== */
-.hero-section {
-    min-height: calc(100vh - var(--nav-height));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-}
-
-.hero-glass-container {
-    max-width: 800px;
-    text-align: center;
-    padding: 4rem;
-    background: rgba(10, 10, 15, 0.5);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    box-shadow: var(--shadow-subtle);
-    position: relative;
-    overflow: hidden;
-}
-
-.esports-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 70, 85, 0.1);
-    border: 1px solid rgba(255, 70, 85, 0.3);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-red);
-    margin-bottom: 2rem;
-}
-
-.live-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--accent-red);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-red);
-    animation: pulse-red 2s infinite;
-}
-
-.hero-title {
-    font-family: var(--font-heading);
-    font-size: 5rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    background: linear-gradient(to right, #ffffff, #a0a5b5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    letter-spacing: 2px;
-}
-
-.hero-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
-.btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-    transition: all var(--transition-fast);
-}
-
-.btn-primary {
-    background-color: var(--accent-red);
-    color: white;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: var(--accent-red-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow-red);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--glass-border);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   Gamemodes Section
-   ========================================================================== */
-.gamemodes-section {
-    padding: 6rem 2rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.gamemodes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.gamemode-card {
-    position: relative;
-    border-radius: 8px;
-    padding: 1px; /* Gradient border wrapper */
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-    transition: transform var(--transition-medium);
-}
-
-.gamemode-card:hover {
-    transform: translateY(-5px);
-}
-
-.gamemode-card-inner {
-    height: 100%;
-    padding: 3rem 2rem;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-panel);
-    position: relative;
-    overflow: hidden;
-}
-
-.gamemode-name {
-    font-family: var(--font-heading);
+    font-weight: 800;
     font-size: 1.5rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 2;
 }
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
+.brand-version {
+    font-size: 0.7rem;
+    color: var(--accent-blue-light);
+    vertical-align: super;
+}
+
+/* Footer Styles */
 .site-footer {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     text-align: center;
-    position: relative;
-    z-index: var(--z-base);
-    background: var(--bg-darker);
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 .footer-divider {
-    width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+    background: var(--glass-border);
     margin-bottom: 2rem;
-}
-
-.footer-content p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-}
-
-.mobile-menu-toggle span {
-    width: 30px;
-    height: 2px;
-    background-color: var(--text-primary);
-    transition: var(--transition-fast);
-}
-
-@media (max-width: 1024px) {
-    .nav-menu {
-        display: none; /* Will be toggled via JS */
-    }
-    
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
-    .hero-title {
-        font-size: 3.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-glass-container {
-        padding: 2rem;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-    }
-    
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        text-align: center;
-    }
 }
